@@ -2,6 +2,7 @@
   {
     "title": " Test ",
     "content": " Hello",
+    "email": "user1@gmail.com",
     "user_id": 1
   }
 ]

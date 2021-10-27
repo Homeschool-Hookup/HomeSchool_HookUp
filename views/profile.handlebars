@@ -1,0 +1,44 @@
+<div class="columns">
+    <div class="column">
+        <h2> Your Pod Posts</h2>
+        {{#each posts }}
+        {{>podpost-info}}
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-warning">Update</button>
+            </div>
+            <div class="control">
+                <button class="button is-warning is-light">Delete</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="column">
+        <h2> Your Project Posts</h2>
+        {{#each posts }}
+        {{>projectpost-info}}
+        {{/each}}
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-warning">Update</button>
+            </div>
+            <div class="control">
+                <button class="button is-warning is-light">Delete</button>
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <h2> Your Self-Care Posts</h2>
+        {{#each posts }}
+        {{>selfcarepost-info}}
+        {{/each}}
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-warning">Update</button>
+            </div>
+            <div class="control">
+                <button class="button is-warning is-light">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

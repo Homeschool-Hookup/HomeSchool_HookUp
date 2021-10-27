@@ -1,0 +1,29 @@
+<div class="columns">
+    <div class="column">
+        <h1 class="has-text-danger is-size-2">Looking for a fun project?</h1>
+        <h3 class="has-text-link is-size-4">Find project ideas to help your children learn the content you're teaching!
+        </h3>
+        <div class="field">
+            <div class="button">
+                <button class="button is-warning" id="newPodPost"> <a href="/newprojectpost"></a>>Create a new
+                    post!</button>
+            </div>
+        </div>
+        {{#each posts }}
+        <div class="card">
+            <header class="card-header is-link">
+                <p class="card-header-title">
+                    {{post.title}}
+                </p>
+            </header>
+            <div class="card-content">
+                <div class="content">
+                    <p class="has-text-link"> {{post.content}} </p>
+                </div>
+                <footer class="card-footer is-link">
+                    <p>Created by :{{user.name}} on {{"helper function to convert date" date_created}}</p>
+                </footer>
+            </div>
+        </div>
+        {{/each}}
+    </div>

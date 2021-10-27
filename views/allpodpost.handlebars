@@ -1,0 +1,30 @@
+<div class="columns">
+    <div class="column">
+        <h1>Looking to Pod?</h1>
+        <h3>Find a family in your area looking to create pods with other families to increase learning opportunities and
+            help foster healthy social skills! </h3>
+        <div class="field">
+            <div class="button">
+                <button class="button is-warning" id="newPodPost"> <a href="/newpodpost"></a>>Create a new
+                    post!</button>
+            </div>
+        </div>
+        {{#each posts }}
+        <div class="card">
+            <header class="card-header">
+                <p class="card-header-title">
+                    {{post.title}}
+                </p>
+            </header>
+            <div class="card-content">
+                <div class="content">
+                    <p>{{post.email}}</p>
+                    <p> {{post.content}} </p>
+                </div>
+                <footer class="card-footer">
+                    <p>Created by :{{user.name}} on {{"helper function to convert date" date_created}}</p>
+                </footer>
+            </div>
+        </div>
+        {{/each}}
+    </div>

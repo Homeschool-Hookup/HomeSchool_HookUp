@@ -1,5 +1,5 @@
 const sequelize = require("../config/connection");
-const { User, podPost, projectPost, selfCarePost } = require("../models");
+const { User, Pod, Project, SelfCarePost } = require("../models");
 
 const userData = require("./user-seed.json");
 const podPostData = require("./podPost-seed.json");
@@ -14,17 +14,17 @@ const seedDatabase = async () => {
     returning: true,
   });
   console.log("\n----- USERS TABLE ---\n");
-  await podPost.bulkCreate(podPostData, {
+  await Pod.bulkCreate(podPostData, {
     individualHooks: true,
     returning: true,
   });
   console.log("\n----- POD POST TABLE ---\n");
-  await projectPost.bulkCreate(projectPostData, {
+  await Project.bulkCreate(projectPostData, {
     individualHooks: true,
     returning: true,
   });
   console.log("\n----- PROJECT POST TABLE ---\n");
-  await selfCarePost.bulkCreate(selfCarePostData, {
+  await SelfCarePost.bulkCreate(selfCarePostData, {
     individualHooks: true,
     returning: true,
   });

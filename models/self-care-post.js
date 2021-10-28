@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class selfCarePost extends Model {}
+class SelfCarePost extends Model {}
 
-selfCarePost.init(
+SelfCarePost.init(
   {
     // define columns
     id: {
@@ -53,4 +53,4 @@ selfCarePost.init(
   }
 );
 
-module.exports = selfCarePost;
+module.exports = SelfCarePost;

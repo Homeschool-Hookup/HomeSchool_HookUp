@@ -30,6 +30,12 @@ router.get('/projects', async (req, res) => {
     }
   });
 
+  // Get a project
+router.get('/projects/:id', async (req, res) => {
+    // This method renders the 'project' template, and uses params to select the correct project to render in the template, based on the id of the project.
+    // Now, we have access to a project description in the 'project' template.
+    return res.render('allprojectposts', project[req.params.num - 1]);
+  });
 router.post('/', withAuth, async (req, res) => {
   try {
     const newProject = await Project.create({
@@ -43,12 +49,6 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// Get a project
-router.get('/projects/:id', async (req, res) => {
-    // This method renders the 'project' template, and uses params to select the correct project to render in the template, based on the id of the project.
-    // Now, we have access to a project description in the 'project' template.
-    return res.render('allprojectposts', project[req.params.num - 1]);
-  });
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {

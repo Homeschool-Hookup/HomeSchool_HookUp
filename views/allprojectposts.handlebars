@@ -1,0 +1,15 @@
+<div class="columns">
+    <div class="column">
+        <h1 class="has-text-danger is-size-2">Looking for a fun project?</h1>
+        <h3 class="has-text-link is-size-4">Find project ideas to help your children learn the content you're teaching!
+        </h3>
+        <div class="field">
+            <div class="button">
+                <button class="button is-warning" id="newProject"> <a href="/newprojectpost"></a>>Create a new
+                    post!</button>
+            </div>
+        </div>
+        {{#each posts }}
+        {{>projectpost-info}}
+        {{/each}}
+    </div>

@@ -6,7 +6,7 @@ const editPodFormHandler = async function (event) {
     const postEmail = document.querySelector('input[name="posterEmail]').value;
   
     if (body) {
-      await fetch('/api/blog-post/:id', {
+      await fetch('/api/pod/:id', {
         method: 'PUT',
         body: JSON.stringify({
           postTitle,

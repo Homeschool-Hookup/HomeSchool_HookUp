@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class projectPost extends Model {}
+class Project extends Model {}
 
-projectPost.init(
+Project.init(
   {
     // define columns
     id: {
@@ -53,4 +53,4 @@ projectPost.init(
   }
 );
 
-module.exports = projectPost;
+module.exports = Project;

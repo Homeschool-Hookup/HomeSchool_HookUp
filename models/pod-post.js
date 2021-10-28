@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class podPost extends Model {}
+class Pod extends Model {}
 
-podPost.init(
+Pod.init(
   {
     // define columns
     id: {
@@ -57,4 +57,4 @@ podPost.init(
   }
 );
 
-module.exports = podPost;
+module.exports = Pod;

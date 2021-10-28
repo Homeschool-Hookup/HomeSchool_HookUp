@@ -36,6 +36,7 @@ router.get('/projects/:id', async (req, res) => {
     // Now, we have access to a project description in the 'project' template.
     return res.render('allprojectposts', project[req.params.num - 1]);
   });
+
 router.post('/', withAuth, async (req, res) => {
   try {
     const newProject = await Project.create({
@@ -49,6 +50,23 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+router.put('/:id', withAuth, async (req, res) => {
+    try {
+      const [affectedRows] = await Project.update(req.body, {
+        where: {
+          id: req.params.id,
+        },
+      });
+  
+      if (affectedRows > 0) {
+        res.status(200).end();
+      } else {
+        res.status(404).end();
+      }
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {

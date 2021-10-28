@@ -15,9 +15,14 @@
     <header>
         <nav class="navbar has-background-link-dark has-text-white " role="navigation" aria-label="main navigation">
             <div class="navbar-brand is-flex is-align-items-center is-size-3">
-                <h1 id="headerText ">HomeSchool HookUp</h1>
+                <h1 class="headerText ">HomeSchool HookUp</h1>
+                <span class="navbar-burger burger" data-target="navbar">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
             </div>
-            <div id="navbar" class="navbar-menu is-active">
+            <div id="navbar" class="navbar-menu ">
                 <div class="navbar-end">
                     <a class="navbar-item has-text-white" href="/">
                         Home
@@ -56,6 +61,17 @@
         </nav>
     </header>
     {{{body}}}
+    <script>
+        (function () {
+            var burger = document.querySelector(".burger");
+            var nav = document.querySelector("#" + burger.dataset.target);
+
+            burger.addEventListener("click", function () {
+                burger.classList.toggle("is-active");
+                nav.classList.toggle("is-active");
+            });
+        })();
+    </script>
 </body>
 
 </html>

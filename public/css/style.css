@@ -1,5 +1,10 @@
-#headerText {
-  font-size: xx-large;
-  font-weight: bolder;
-  color: blue;
+@media screen and (max-width: 1024px) {
+  .navbar-menu {
+    background-color: transparent;
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+  .navbar-item {
+    color: white;
+  }
 }

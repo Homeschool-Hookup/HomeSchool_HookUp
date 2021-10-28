@@ -21,18 +21,12 @@ router.get('/', withAuth, async (req, res) => {
     res.render('allpodpost');
   });
   
-  // Get a pod
-  router.get('/pod/:id', async (req, res) => {
-    // This method renders the 'pod' template, and uses params to select the correct pod to render in the template, based on the id of the pod.
-    // Now, we have access to a pod description in the 'pod' template.
-    return res.render('allpodpost', pod[req.params.num - 1]);
-  });
 
   router.get('/:id', withAuth, async (req, res) => {
     const body = req.body;
 
     try {
-      const newPod = await Pod.find({
+      const newPod = await Pod.findByPk({
         ...req.body,
         user_id: req.session.user_id,
       });
@@ -41,6 +35,13 @@ router.get('/', withAuth, async (req, res) => {
     } catch (err) {
       res.status(400).json(err);
     }
+  });
+
+  // Get a pod
+  router.get('/pod/:id', async (req, res) => {
+    // This method renders the 'pod' template, and uses params to select the correct pod to render in the template, based on the id of the pod.
+    // Now, we have access to a pod description in the 'pod' template.
+    return res.render('allpodpost', pod[req.params.num - 1]);
   });
 
 router.post('/', withAuth, async (req, res) => {
@@ -55,6 +56,24 @@ router.post('/', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+router.put('/:id', withAuth, async (req, res) => {
+    try {
+      const [affectedRows] = await Pod.update(req.body, {
+        where: {
+          id: req.params.id,
+        },
+      });
+  
+      if (affectedRows > 0) {
+        res.status(200).end();
+      } else {
+        res.status(404).end();
+      }
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {

@@ -1,17 +1,25 @@
 const router = require('express').Router();
-const { SelfCarePost } = require('../../models');
+const { SelfCarePost, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/allselfcare', async (req, res) => {
   const body = req.body;
 
   try {
-    const newSelfCarePost = await SelfCarePost.findAll({ ...body, userId: req.session.userId });
-    res.json(newSelfCarePost);
+    const newSelfCarePost = await SelfCarePost.findAll({
+      include: [User]
+    });
+    const selfcare = newSelfCarePost.map((self) => self.get({ plain: true }));
+    console.log("selfcare", selfcare);
+    res.render("allselfcare", {
+      layout: "main",
+      selfcare
+    })
+    // res.status(200).json(newPod);
   } catch (err) {
     res.status(500).json(err);
-  }
+  };
 });
 
 router.get('/allselfcare', async (req, res) => {

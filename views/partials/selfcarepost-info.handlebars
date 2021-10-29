@@ -1,7 +1,7 @@
 <div class="card has-background-link-light">
   <header class="card-header">
     <p class="card-header-title has-background-warning-light has-text-danger">
-      <a href="self-care/{{id}}"></a>{{title}}
+      <a href="allselfcare/{{id}}"></a>{{title}}
     </p>
   </header>
   <div class="card-content">
@@ -9,9 +9,9 @@
       <p class="has-text-link-dark"> {{content}} </p>
     </div>
     <footer class="card-footer">
-      <p class="has-text-link-dark">Created by :{{name}}
+      <p class="has-text-link-dark">Created by :{{username}}
         on
-        {{format_date : createAt}}</p>
+        {{createAt}}</p>
     </footer>
   </div>
 </div>

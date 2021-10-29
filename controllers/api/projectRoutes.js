@@ -1,18 +1,25 @@
 const router = require('express').Router();
-const { Project } = require('../../models');
+const { Project, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/allprojects', async (req, res) => {
   try {
     const newProject = await Project.findAll({
-      ...req.body,
-      user_id: req.session.user_id,
+      include: [User]
+      // ...req.body,
+      // user_id: req.session.user_id,
     });
 
-    res.status(200).json(newProject);
+    const projects = newProject.map((project) => project.get({ plain: true }));
+    console.log("projects", projects);
+    res.render("allprojectposts", {
+      layout: "main",
+      projects
+    })
+    // res.status(200).json(newPod);
   } catch (err) {
-    res.status(400).json(err);
-  }
+    res.status(500).json(err);
+  };
 });
 
 router.get('/allprojects', async (req, res) => {

@@ -49,6 +49,12 @@ router.get('/:id', async (req, res) => {
   return res.render('allpodpost', pod[req.params.num - 1]);
 });
 
+router.get('/allpodpost/new', (req, res) => {
+  res.render('newpodpost', {
+    layout: 'main',
+  });
+});
+
 router.post('/allpodpost', withAuth, async (req, res) => {
   try {
     const newPod = await Pod.create({

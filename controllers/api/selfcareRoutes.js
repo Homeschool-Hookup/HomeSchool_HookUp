@@ -50,7 +50,7 @@ router.get('/allselfcare/new', (req, res) => {
   });
 });
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/allselfcare/new', withAuth, async (req, res) => {
   const body = req.body;
 
   try {

@@ -9,9 +9,10 @@
       <p class="has-text-link-dark"> {{content}} </p>
     </div>
     <footer class="card-footer">
-      <p class="has-text-link-dark">Created by :{{username}}
+      <p class="has-text-link-dark">Created by:
+        {{user.username}}
         on
-        {{createAt}}</p>
+        {{format_date createdAt}}</p>
     </footer>
   </div>
 </div>

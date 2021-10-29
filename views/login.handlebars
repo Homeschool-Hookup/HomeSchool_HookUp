@@ -1,30 +1,35 @@
 <div class="columns">
     <div class="column is-10 is-offset-1 mt-4">
         <h1 class="has-text-danger is-size-2 pt-2 pb-4">Log In!</h1>
-        <div class="field">
-            <label class="label has-text-link">Email</label>
-            <div class="control has-icons-left has-icons-right">
-                <input class="input is-link" type="email" placeholder="Email input" value="" id="userEmail">
-                <span class="icon is-small is-left">
-                    <i class="fas fa-envelope"></i>
-                </span>
-            </div>
-        </div>
+        <form id="login-form" class="card-body">
+            <div class="field">
 
-        <div class="field">
-            <label class="label has-text-link">Password</label>
-            <div class="control has-icons-left has-icons-right">
-                <input class="input is-link" type="password" placeholder="Password input" value="" id="userPassword">
-                <span class="icon is-small is-left">
-                    <i class="fas fa-lock"></i>
-                </span>
+                <label class="label has-text-link">Username:</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input is-link" type="text" placeholder="Username" value="" id="userName">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                </div>
             </div>
-        </div>
-        <div class="field py-3">
-            <div class=" control">
-                <button class="button is-rounded is-warning" id="logInBtn">Login</button>
+
+            <div class="field">
+                <label class="label has-text-link">Password</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input is-link" type="password" placeholder="Password input" value=""
+                        id="userPassword">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                </div>
             </div>
-        </div>
+            <div class="field py-3">
+                <div class=" control">
+                    <button class="button is-rounded is-warning" id="logInBtn">Login</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 </div>
+<script src="/js/login.js"></script>

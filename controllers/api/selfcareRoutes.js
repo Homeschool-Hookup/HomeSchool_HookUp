@@ -14,7 +14,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/self-care', async (req, res) => {
+router.get('/allselfcare', async (req, res) => {
   res.render('allselfcare');
 });
 

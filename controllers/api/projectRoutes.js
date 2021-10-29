@@ -15,7 +15,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/projects', async (req, res) => {
+router.get('/allprojects', async (req, res) => {
     res.render('allprojectposts');
   });
 

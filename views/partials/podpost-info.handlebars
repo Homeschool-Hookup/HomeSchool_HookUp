@@ -1,16 +1,19 @@
 <div class="card has-background-link-light">
-    <header class="card-header">
-        <p class="card-header-title has-background-warning-light has-text-danger">
-            <a href="allpodpost/{{id}}"></a>{{title}}
-        </p>
-    </header>
-    <div class="card-content">
-        <div class="content">
-            <a href="mailto:{{email}}">Email: {{email}}</a>
-            <p class="has-text-link"> {{content}} </p>
-        </div>
-        <footer class="card-footer is-link">
-            <p class="has-text-link-dark">Created by :{{username}} on {{createdAt}}</p>
-        </footer>
+  <header class="card-header">
+    <p class="card-header-title has-background-warning-light has-text-danger">
+      <a href="allpodpost/{{id}}"></a>{{title}}
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <a href="mailto:{{email}}">Email: {{email}}</a>
+      <p class="has-text-link"> {{content}} </p>
     </div>
+    <footer class="card-footer is-link">
+      <p class="has-text-link-dark">Created by:
+        {{user.username}}
+        on
+        {{format_date createdAt}}</p>
+    </footer>
+  </div>
 </div>

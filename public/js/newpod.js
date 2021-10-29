@@ -1,6 +1,6 @@
 const createPodFormHandler = async function (event) {
   event.preventDefault();
-  console.log("button cliked")
+  console.log("button clicked")
   const podTitle = document.querySelector('input[id="podTitle"]').value;
   const content = document.querySelector('input[id="content"]').value;
   const posterEmail = document.querySelector('input[id="posterEmail"]').value;

@@ -46,7 +46,7 @@ router.post('/login', async (req, res) => {
         username: req.body.username,
       },
     });
-    
+
     if (!user) {
       res.status(400).json({ message: 'No user account found!' });
       return;
@@ -59,7 +59,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    req.session.save(() => {    
+    req.session.save(() => {
       req.session.userId = user.id;
       req.session.username = user.username;
       req.session.loggedIn = true;

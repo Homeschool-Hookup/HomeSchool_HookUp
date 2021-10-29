@@ -25,7 +25,7 @@ router.get('/', withAuth, async (req, res) => {
 router.get('/:id', withAuth, async (req, res) => {
   const body = req.body;
   try {
-    const postData = await Post.findByPk({
+    const postData = await Pod.findByPk({
       ...req.body,
       where: {
         userId: req.session.userId,

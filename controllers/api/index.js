@@ -6,7 +6,7 @@ const userRoutes = require('./user-routes.js');
 const podRoutes = require('./podRoutes');
 const projectRoutes = require('./projectRoutes');
 const selfCareRoutes = require('./selfCareRoutes');
-const profileRoutes = require('./profileRoutes.js');
+//const profileRoutes = require('./profileRoutes.js');
 
 router.use('/user', userRoutes);
 router.use('/pod', podRoutes);

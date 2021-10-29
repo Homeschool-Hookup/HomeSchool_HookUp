@@ -17,7 +17,7 @@ router.get('/', withAuth, async (req, res) => {
     }
   });
 
-  router.get('/pod', async (req, res) => {
+  router.get('/allpodpost', async (req, res) => {
     res.render('allpodpost');
   });
 

@@ -44,6 +44,12 @@ router.get('/self-care/:id', async (req, res) => {
   return res.render('allselfcare', selfCarePost[req.params.num - 1]);
 });
 
+router.get('/allselfcare/new', (req, res) => {
+  res.render('newselfcare', {
+    layout: 'main',
+  });
+});
+
 router.post('/', withAuth, async (req, res) => {
   const body = req.body;
 

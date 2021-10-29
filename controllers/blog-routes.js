@@ -39,7 +39,7 @@ router.get('/:id', withAuth, async (req, res) => {
 
 router.get('/new', withAuth, (req, res) => {
   res.render('newpodpost', {
-    layout: 'blog-post',
+    layout: 'main',
   });
 });
 
@@ -51,7 +51,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
       const post = postData.get({ plain: true });
 
       res.render('updatepodpost', {
-        layout: 'blog-post',
+        layout: 'main',
         post,
       });
     } else {

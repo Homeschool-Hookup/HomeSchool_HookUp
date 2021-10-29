@@ -1,6 +1,7 @@
 // const router = require('express').Router();
 // //const Profile = require('../../models/Profile');
 // const { Pod, Project, SelfCarePost } = require('../../models');
+
 // const withAuth = require("../utils/auth");
 
 // // route to create/add a profile using async/await
@@ -10,7 +11,7 @@
 // //     profile_name: req.body.profile_name,
 // //     profile_email: req.body.profile_email,
 // //     description: req.body.description,
-
+      
 // //   });
 
 // router.get("/", withAuth, async (req, res) => {
@@ -25,7 +26,7 @@
 //             where: {
 //                 user_id: req.session.user_id,
 //             }
-//         });
+//         });      
 //         const selfData = await SelfCarePost.findAll({
 //             where: {
 //                 user_id: req.session.user_id,
@@ -36,12 +37,11 @@
 //             layout: "main"
 //         })
 
-//         // if the profile is successfully created, the new response will be returned as json
-//         //res.status(200).json(profileData)
-//     } catch (err) {
-//         res.status(400).json(err);
-//     }
+//   // if the profile is successfully created, the new response will be returned as json
+//   //res.status(200).json(profileData)
+// } catch (err) {
+//   res.status(400).json(err);
+// }
 // });
-
 
 // module.exports = router;

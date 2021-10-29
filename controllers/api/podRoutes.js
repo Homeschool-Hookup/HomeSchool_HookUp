@@ -17,7 +17,6 @@ router.get('/allpodpost', async (req, res) => {
       layout: "main",
       pods
     })
-
     // res.status(200).json(newPod);
   } catch (err) {
     res.status(400).json(err);

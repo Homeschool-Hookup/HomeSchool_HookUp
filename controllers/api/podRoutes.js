@@ -1,49 +1,49 @@
-const router = require('express').Router();
-const { Pod } = require('../../models');
-const withAuth = require('../../utils/auth');
+const router = require("express").Router();
+const { Pod } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-router.get('/', withAuth, async (req, res) => {
-    const body = req.body;
+router.get("/", withAuth, async (req, res) => {
+  const body = req.body;
 
-    try {
-      const newPod = await Pod.findAll({
-        ...req.body,
-        user_id: req.session.user_id,
-      });
-  
-      res.status(200).json(newPod);
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  });
+  try {
+    const newPod = await Pod.findAll({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
 
-  router.get('/pod', async (req, res) => {
-    res.render('allpodpost');
-  });
+    res.status(200).json(newPod);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
-  router.get('/:id', withAuth, async (req, res) => {
-    const body = req.body;
+router.get("/pod", async (req, res) => {
+  res.render("allpodpost");
+});
 
-    try {
-      const newPod = await Pod.find({
-        ...req.body,
-        user_id: req.session.user_id,
-      });
-  
-      res.status(200).json(newPod);
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  });
+router.get("/:id", withAuth, async (req, res) => {
+  const body = req.body;
 
-   // Get a pod
-   router.get('/pod/:id', async (req, res) => {
-    // This method renders the 'pod' template, and uses params to select the correct pod to render in the template, based on the id of the pod.
-    // Now, we have access to a pod description in the 'pod' template.
-    return res.render('allpodpost', pod[req.params.num - 1]);
-  });
+  try {
+    const newPod = await Pod.find({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
 
-router.post('/', withAuth, async (req, res) => {
+    res.status(200).json(newPod);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// Get a pod
+router.get("/pod/:id", async (req, res) => {
+  // This method renders the 'pod' template, and uses params to select the correct pod to render in the template, based on the id of the pod.
+  // Now, we have access to a pod description in the 'pod' template.
+  return res.render("allpodpost", pod[req.params.num - 1]);
+});
+
+router.post("/", withAuth, async (req, res) => {
   try {
     const newPod = await Pod.create({
       ...req.body,
@@ -56,25 +56,25 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.put('/:id', withAuth, async (req, res) => {
-    try {
-      const [affectedRows] = await Pod.update(req.body, {
-        where: {
-          id: req.params.id,
-        },
-      });
-  
-      if (affectedRows > 0) {
-        res.status(200).end();
-      } else {
-        res.status(404).end();
-      }
-    } catch (err) {
-      res.status(500).json(err);
+router.put("/:id", withAuth, async (req, res) => {
+  try {
+    const [affectedRows] = await Pod.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (affectedRows > 0) {
+      res.status(200).end();
+    } else {
+      res.status(404).end();
     }
-  });
-  
-router.delete('/:id', withAuth, async (req, res) => {
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.delete("/:id", withAuth, async (req, res) => {
   try {
     const podData = await Pod.destroy({
       where: {
@@ -84,7 +84,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     });
 
     if (!podData) {
-      res.status(404).json({ message: 'No pod found with this id!' });
+      res.status(404).json({ message: "No pod found with this id!" });
       return;
     }
 
@@ -95,3 +95,15 @@ router.delete('/:id', withAuth, async (req, res) => {
 });
 
 module.exports = router;
+
+//search bar for Pod
+const sequelize = require("sequelize");
+const Op = sequelize.Op;
+
+router.get("/search", (req, res) => {
+  let { term } = req.query;
+  term = term.toLowerCase();
+  Pod.findAll({ where: { title: { [Op.like]: "%" + term + "% " } } })
+    .then((Pod) => res.render("Pod", { Pod }))
+    .catch((err) => console.log(err));
+});

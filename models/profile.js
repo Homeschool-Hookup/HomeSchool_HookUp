@@ -1,35 +1,29 @@
 // const { Model, DataTypes } = require("sequelize");
 // const sequelize = require("../config/connection");
 
-// class Post extends Model {}
+// class Profile extends Model {}
 
-// Post.init(
+// Profile.init(
 //   {
+//     // define columns
 //     id: {
 //       type: DataTypes.INTEGER,
 //       allowNull: false,
 //       primaryKey: true,
 //       autoIncrement: true,
 //     },
-//     podPost_id: {
-//       type: DataTypes.INTEGER,
-//       references: {
-//         model: "pod-post",
-//         key: "id",
-//       },
+//     name: {
+//       type: DataTypes.STRING,
+//       allowNull: false,
 //     },
-//     projectPost_id: {
-//       type: DataTypes.INTEGER,
-//       references: {
-//         model: "project-post",
-//         key: "id",
-//       },
+//     email: {
+//       type: DataTypes.STRING,
+//       allowNull: false,
 //     },
-//     selfCarePost_id: {
-//       type: DataTypes.INTEGER,
-//       references: {
-//         model: "self_care_post",
-//         key: "id",
+//     description: {
+//       type: DataTypes.TEXT,
+//       validation: {
+//         len: [20],
 //       },
 //     },
 //     user_id: {
@@ -45,7 +39,8 @@
 //     // timestamps: false,
 //     freezeTableName: true,
 //     underscored: true,
-//     modelName: "post",
+//     modelName: "profile",
 //   }
 // );
-// module.exports = Post;
+
+// module.exports = Profile;

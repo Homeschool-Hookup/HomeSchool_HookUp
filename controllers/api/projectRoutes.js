@@ -1,8 +1,8 @@
-const router = require('express').Router();
-const { Project } = require('../../models');
-const withAuth = require('../../utils/auth');
+const router = require("express").Router();
+const { Project } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-router.get('/', withAuth, async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   try {
     const newProject = await Project.findAll({
       ...req.body,
@@ -15,29 +15,32 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/projects', async (req, res) => {
-    res.render('allprojectposts');
-  });
+router.get("/projects", async (req, res) => {
+  res.render("allprojectposts");
+});
 
-  router.get('/:id', withAuth, async (req, res) => {
-    const body = req.body;
-  
-    try {
-      const newProject = await Project.findByPk({ ...body, userId: req.session.userId });
-      res.json(newProject);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+router.get("/:id", withAuth, async (req, res) => {
+  const body = req.body;
 
-  // Get a project
-router.get('/projects/:id', async (req, res) => {
-    // This method renders the 'project' template, and uses params to select the correct project to render in the template, based on the id of the project.
-    // Now, we have access to a project description in the 'project' template.
-    return res.render('allprojectposts', project[req.params.num - 1]);
-  });
+  try {
+    const newProject = await Project.findByPk({
+      ...body,
+      userId: req.session.userId,
+    });
+    res.json(newProject);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-router.post('/', withAuth, async (req, res) => {
+// Get a project
+router.get("/projects/:id", async (req, res) => {
+  // This method renders the 'project' template, and uses params to select the correct project to render in the template, based on the id of the project.
+  // Now, we have access to a project description in the 'project' template.
+  return res.render("allprojectposts", project[req.params.num - 1]);
+});
+
+router.post("/", withAuth, async (req, res) => {
   try {
     const newProject = await Project.create({
       ...req.body,
@@ -50,25 +53,25 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.put('/:id', withAuth, async (req, res) => {
-    try {
-      const [affectedRows] = await Project.update(req.body, {
-        where: {
-          id: req.params.id,
-        },
-      });
-  
-      if (affectedRows > 0) {
-        res.status(200).end();
-      } else {
-        res.status(404).end();
-      }
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+router.put("/:id", withAuth, async (req, res) => {
+  try {
+    const [affectedRows] = await Project.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
 
-router.delete('/:id', withAuth, async (req, res) => {
+    if (affectedRows > 0) {
+      res.status(200).end();
+    } else {
+      res.status(404).end();
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.delete("/:id", withAuth, async (req, res) => {
   try {
     const projectData = await Project.destroy({
       where: {
@@ -78,7 +81,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     });
 
     if (!projectData) {
-      res.status(404).json({ message: 'No project found with this id!' });
+      res.status(404).json({ message: "No project found with this id!" });
       return;
     }
 
@@ -89,3 +92,15 @@ router.delete('/:id', withAuth, async (req, res) => {
 });
 
 module.exports = router;
+
+//search bar for project
+const sequelize = require("sequelize");
+const Op = sequelize.Op;
+
+router.get("/search", (req, res) => {
+  let { term } = req.query;
+  term = term.toLowerCase();
+  Project.findAll({ where: { title: { [Op.like]: "%" + term + "% " } } })
+    .then((Project) => res.render("Project", { Project }))
+    .catch((err) => console.log(err));
+});

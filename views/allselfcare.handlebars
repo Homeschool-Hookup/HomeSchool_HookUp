@@ -9,7 +9,13 @@
                     post!</button>
             </div>
         </div>
-        {{#each self-care }}
+        {{#each selfcare }}
         {{>selfcarepost-info}}
         {{/each}}
     </div>
+
+    <script>
+        document.querySelector("#newSelfCare").addEventListener("click", () => {
+            document.location.replace("/api/self-care/allselfcare/new")
+        })
+    </script>

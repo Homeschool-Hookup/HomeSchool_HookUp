@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Pod } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   const body = req.body;
   try {
     const postData = await Pod.findAll({
@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', withAuth, async (req, res) => {
   const body = req.body;
   try {
-    const postData = await Post.findByPk({
+    const postData = await Pod.findByPk({
       ...req.body,
       where: {
         userId: req.session.userId,
@@ -37,11 +37,11 @@ router.get('/:id', withAuth, async (req, res) => {
   }
 });
 
-router.get('/new', withAuth, (req, res) => {
-  res.render('newpodpost', {
-    layout: 'blog-post',
-  });
-});
+// router.get('/new', withAuth, (req, res) => {
+//   res.render('newpodpost', {
+//     layout: 'main',
+//   });
+// });
 
 router.get('/edit/:id', withAuth, async (req, res) => {
   try {
@@ -51,7 +51,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
       const post = postData.get({ plain: true });
 
       res.render('updatepodpost', {
-        layout: 'blog-post',
+        layout: 'main',
         post,
       });
     } else {

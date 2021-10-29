@@ -17,5 +17,11 @@
         {{/each}}
     </div>
 
+    <script>
+        document.querySelector("#newPodPost").addEventListener("click", () => {
+            document.location.replace("/api/pod/allpodpost/new")
+        })
+    </script>
 
-    <script src="/js/newpod.js"></script>
+    {{!--
+    <script src="/js/newpod.js"></script> --}}

@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Post } = require('../models');
+const { Pod } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   const body = req.body;
   try {
-    const postData = await Post.findAll({
+    const postData = await Pod.findAll({
       where: {
         userId: req.session.userId,
       },
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     res.render('allpodpost', {
-      layout: 'blog-post',
+      layout: 'main',
       posts,
     });
   } catch (err) {

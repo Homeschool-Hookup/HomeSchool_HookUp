@@ -17,7 +17,6 @@
         <h2 class="has-text-danger is-size-4"> Your Project Posts</h2>
         {{#each posts }}
         {{>projectpost-info}}
-        {{/each}}
         <div class="field is-grouped">
             <div class="control">
                 <button class="button is-warning"><a href="#####"></a>Update</button>
@@ -26,12 +25,12 @@
                 <button class="button is-warning is-light">Delete</button>
             </div>
         </div>
+        {{/each}}
     </div>
     <div class="column is-one-third-desktop is-one-third-tablet is-three-fourths-mobile">
         <h2 class="has-text-danger is-size-4"> Your Self-Care Posts</h2>
         {{#each posts }}
         {{>selfcarepost-info}}
-        {{/each}}
         <div class="field is-grouped">
             <div class="control">
                 <button class="button is-warning"><a href="#####"></a>Update</button>
@@ -40,5 +39,6 @@
                 <button class="button is-warning is-light">Delete</button>
             </div>
         </div>
+        {{/each}}
     </div>
 </div>

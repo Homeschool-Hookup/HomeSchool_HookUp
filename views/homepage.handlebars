@@ -1,179 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="/style.css">
-    <title>HomeSchool Hookup</title>
-</head>
-
-<body>
-    <header>
-        <nav class="navbar has-background-link-dark has-text-white " role="navigation" aria-label="main navigation">
-            <div class="navbar-brand is-flex is-align-items-center is-size-3">
-                <h1 id="headerText ">HomeSchool HookUp</h1>
-            </div>
-            <div id="navbarBasicExample" class="navbar-menu">
-                <div class="navbar-end">
-                    <a class="navbar-item has-text-white" href="/">
-                        Home
-                    </a>
-                    <a class="navbar-item has-text-white" href="/profile">
-                        Profile
-                    </a>
-                    <div class="navbar-item has-dropdown">
-                        <a class="navbar-link has-text-white">
-                            Posts
-                        </a>
-                        <div class="navbar-dropdown">
-                            <a class="navbar-item" href="/allpodposts">
-                                Pod Posts
-                            </a>
-                            <a class="navbar-item" href="/allprojectposts">
-                                Project Posts
-                            </a>
-                            <a class="navbar-item" href="/allselfcare">
-                                Self-Care Posts
-                            </a>
-                        </div>
-                        <a class="navbar-item has-text-white" href="/login">
-                            Login
-                        </a>
-                        <a class="navbar-item has-text-white" href="/">
-                            Logout
-                        </a>
-                        <a class="navbar-item has-text-white" href="/signup">
-                            Sign Up
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-    </div>
-    <div class="columns has-background-link-light">
-        <div class="column is-10 is-offset-1">
-            <div class="has-background-link-light">
-                <div class=" is-flex is-justify-content-center is-align-content-space-evenly has-text-danger
+<div class="columns has-background-link-light">
+    <div class="column is-10 is-offset-1">
+        <div class="has-background-link-light">
+            <div class=" is-flex is-justify-content-center is-align-content-space-evenly has-text-danger
             is-size-2">
-                    <h1><br>Let's Get Hooked-Up with Other Homeschool Families!</h1>
-                </div>
-                <section class="section">
-                    <div class="container">
-                        <div id="carousel" class="carousel">
-                            <div class="item-1">
-                                <figure class="image is-4by4">
-                                    <img src="./images/pexels-andrea-piacquadio-3755707.jpg">
-                                </figure>
-                            </div>
-                            <div class="item-2">
-                                <figure class="image is-4by4">
-                                    <img src="./images/pexels-chevanon-photography-333529.jpg">
-                                </figure>
-                            </div>
-                            <div class="item-3">
-                                <figure class="image is-4by4">
-                                    <img src="./images/pexels-cottonbro-3662667.jpg">
-                                </figure>
-                            </div>
-                            <!-- <div class="item-4">
+                <h1><br>Let's Get Hooked-Up with Other Homeschool Families!</h1>
+            </div>
+            <section class="section">
+                <div class="container">
+                    <div id="carousel" class="carousel">
+                        <div class="item-1">
+                            <figure class="image is-4by4">
+                                <img src="./images/pexels-andrea-piacquadio-3755707.jpg">
+                            </figure>
+                        </div>
+                        <div class="item-2">
+                            <figure class="image is-4by4">
+                                <img src="./images/pexels-chevanon-photography-333529.jpg">
+                            </figure>
+                        </div>
+                        <div class="item-3">
+                            <figure class="image is-4by4">
+                                <img src="./images/pexels-cottonbro-3662667.jpg">
+                            </figure>
+                        </div>
+                        <!-- <div class="item-4">
                             <figure class="image is-4by4">
                                 <img src="./images/pexels-cottonbro-3662839.jpg">
                             </figure> -->
-                            <!-- </div>
+                        <!-- </div>
                         <div class="item-5">
                             <figure class="image is-4by4">
                                 <img src="./images/pexels-greta-hoffman-9705669.jpg">
                             </figure>
                         </div> -->
-                            <!-- <div class="item-6">
+                        <!-- <div class="item-6">
                             <figure class="image is-4by4">
                                 <img src="./images/pexels-kindel-media-7105597.jpg">
                             </figure>
                         </div> -->
-                            <div class="item-7">
-                                <figure class="image is-4by4">
-                                    <img src="./images/pexels-lukas-296302.jpg">
-                                </figure>
-                            </div>
-                            <!-- <div class="item-8">
+                        <div class="item-7">
+                            <figure class="image is-4by4">
+                                <img src="./images/pexels-lukas-296302.jpg">
+                            </figure>
+                        </div>
+                        <!-- <div class="item-8">
                             <figure class="image is-4by4">
                                 <img src="./images/pexels-nicholas-githiri-1027931.jpg">
                             </figure>
                         </div> -->
-                            <div class="item-9">
-                                <figure class="image is-4by4">
-                                    <img src="./images/pexels-pixabay-256468.jpg">
-                                </figure>
-                            </div>
-                            <div class="item-10">
-                                <figure class="image is-4by4">
-                                    <img src="./images/pexels-sharon-mccutcheon-1148998.jpg">
-                                </figure>
-                            </div>
-                            <div class="item-11">
-                                <figure class="image is-4by4">
-                                    <img src="./images/pexels-yulianto-poitier-1231365.jpg">
-                                </figure>
-                            </div>
+                        <div class="item-9">
+                            <figure class="image is-4by4">
+                                <img src="./images/pexels-pixabay-256468.jpg">
+                            </figure>
+                        </div>
+                        <div class="item-10">
+                            <figure class="image is-4by4">
+                                <img src="./images/pexels-sharon-mccutcheon-1148998.jpg">
+                            </figure>
+                        </div>
+                        <div class="item-11">
+                            <figure class="image is-4by4">
+                                <img src="./images/pexels-yulianto-poitier-1231365.jpg">
+                            </figure>
                         </div>
                     </div>
-                    <div>
-                        <p class="has-text-link-dark is-size-3">
-                            Welcome to the HomeSchool HookUp! This platform is meant to bring families together of
-                            traditional
-                            homeschooling backgrounds as well as those who may be learning in a virtual environment.
-                        <p>
-                            <br>
+                </div>
+                <div>
+                    <p class="has-text-link-dark is-size-3">
+                        Welcome to the HomeSchool HookUp! This platform is meant to bring families together of
+                        traditional
+                        homeschooling backgrounds as well as those who may be learning in a virtual environment.
+                    <p>
+                        <br>
 
-                        <p class="has-text-warning-dark is-size-4">
-                            - If you are looking for a family to pod with, to share
-                            experiences
-                            and talents and expertise with that
-                            will support
-                            your children's growth and learning, head on over to pod-posts!
-                        </p>
-                        <br>
-                        <p class="has-text-danger-dark is-size-4">
-                            - If you're looking for creative projects that other parents and guardians have had
-                            successes with in
-                            helping their children learn, head over to the Project-Posts!
-                        </p>
-                        <br>
-                        <p class="has-text-link-dark is-size-4">
-                            - Or if you're struggling as a homeschool parent and are looking for self-care tips and
-                            tricks or
-                            events
-                            in
-                            the area that might help you and/or your family unwind - our Self-Care post board is for
-                            you!
-                        </p>
-                        <br>
-                        <p class="has-text-warning-dark is-size-4">
-                            - Again welcome to our community, and we look forward to hearing about your projects,
-                            self-care, and
-                            successes!
-                        </p>
-                    </div>
-                </section>
-            </div>
+                    <p class="has-text-warning-dark is-size-4">
+                        - If you are looking for a family to pod with, to share
+                        experiences
+                        and talents and expertise with that
+                        will support
+                        your children's growth and learning, head on over to pod-posts!
+                    </p>
+                    <br>
+                    <p class="has-text-danger-dark is-size-4">
+                        - If you're looking for creative projects that other parents and guardians have had
+                        successes with in
+                        helping their children learn, head over to the Project-Posts!
+                    </p>
+                    <br>
+                    <p class="has-text-link-dark is-size-4">
+                        - Or if you're struggling as a homeschool parent and are looking for self-care tips and
+                        tricks or
+                        events
+                        in
+                        the area that might help you and/or your family unwind - our Self-Care post board is for
+                        you!
+                    </p>
+                    <br>
+                    <p class="has-text-warning-dark is-size-4">
+                        - Again welcome to our community, and we look forward to hearing about your projects,
+                        self-care, and
+                        successes!
+                    </p>
+                </div>
+            </section>
         </div>
+    </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
-        <script>
-            bulmaCarousel.attach('.carousel', {
-                slidesToScroll: 1,
-                slidesToShow: 1,
-                loop: true,
-                autoplay: true,
-                infinite: true
-            });
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+    <script>
+        bulmaCarousel.attach('.carousel', {
+            slidesToScroll: 1,
+            slidesToShow: 1,
+            loop: true,
+            autoplay: true,
+            infinite: true
+        });
 
-        </script>
-</body>
+    </script>
+    </body>
 
-</html>
+    </html>

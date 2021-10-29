@@ -1,21 +1,23 @@
 <div class="columns">
     <div class="column is-10 is-offset-1 mt-4">
         <h1 class="has-text-danger is-size-2 pt-2 pb-4">Create a Post</h1>
-        <div class="field">
-            <label class="label has-text-link">Title</label>
-            <input class="input is-link" type="text" placeholder="Title" value="" id="selfTitle">
-        </div>
-        <div class="field">
-            <label class="label has-text-link pt-2">Please include a description of what helped you and/or your
-                family
-                unwind, as well as
-                any resources you've found helpful!</label>
-            <input class="input is-link" type="text" placeholder="What helps you unwind?" value="" id="selfContent">
-        </div>
-        <div class="field py-3">
-            <div class="control">
-                <button class="button is-rounded is-warning" id="submitCare">Create</button>
+        <form id="newSelf-form">
+            <div class="field">
+                <label class="label has-text-link">Title</label>
+                <input class="input is-link" type="text" placeholder="Title" value="" id="selfTitle">
             </div>
-        </div>
+            <div class="field">
+                <label class="label has-text-link pt-2">Please include a description of what helped you and/or your
+                    family
+                    unwind, as well as
+                    any resources you've found helpful!</label>
+                <input class="input is-link" type="text" placeholder="What helps you unwind?" value="" id="selfContent">
+            </div>
+            <div class="field py-3">
+                <div class="control">
+                    <button class="button is-rounded is-warning" id="submitCare">Create</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>

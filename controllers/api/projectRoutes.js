@@ -15,27 +15,27 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/projects', async (req, res) => {
-    res.render('allprojectposts');
-  });
+router.get('/allprojects', async (req, res) => {
+  res.render('allprojectposts');
+});
 
-  router.get('/:id', withAuth, async (req, res) => {
-    const body = req.body;
-  
-    try {
-      const newProject = await Project.findByPk({ ...body, userId: req.session.userId });
-      res.json(newProject);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+router.get('/:id', withAuth, async (req, res) => {
+  const body = req.body;
 
-  // Get a project
+  try {
+    const newProject = await Project.findByPk({ ...body, userId: req.session.userId });
+    res.json(newProject);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Get a project
 router.get('/projects/:id', async (req, res) => {
-    // This method renders the 'project' template, and uses params to select the correct project to render in the template, based on the id of the project.
-    // Now, we have access to a project description in the 'project' template.
-    return res.render('allprojectposts', project[req.params.num - 1]);
-  });
+  // This method renders the 'project' template, and uses params to select the correct project to render in the template, based on the id of the project.
+  // Now, we have access to a project description in the 'project' template.
+  return res.render('allprojectposts', project[req.params.num - 1]);
+});
 
 router.post('/', withAuth, async (req, res) => {
   try {
@@ -51,22 +51,22 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 router.put('/:id', withAuth, async (req, res) => {
-    try {
-      const [affectedRows] = await Project.update(req.body, {
-        where: {
-          id: req.params.id,
-        },
-      });
-  
-      if (affectedRows > 0) {
-        res.status(200).end();
-      } else {
-        res.status(404).end();
-      }
-    } catch (err) {
-      res.status(500).json(err);
+  try {
+    const [affectedRows] = await Project.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (affectedRows > 0) {
+      res.status(200).end();
+    } else {
+      res.status(404).end();
     }
-  });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {

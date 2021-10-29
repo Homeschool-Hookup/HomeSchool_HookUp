@@ -14,7 +14,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/self-care', async (req, res) => {
+router.get('/allselfcare', async (req, res) => {
   res.render('allselfcare');
 });
 
@@ -73,25 +73,25 @@ router.delete('/:id', withAuth, async (req, res) => {
       },
     });
 
-//     if (affectedRows > 0) {
-//       res.status(200).end();
-//     } else {
-//       res.status(404).end();
-//     }
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    //     if (affectedRows > 0) {
+    //       res.status(200).end();
+    //     } else {
+    //       res.status(404).end();
+    //     }
+    //   } catch (err) {
+    //     res.status(500).json(err);
+    //   }
+    // });
 
-if (!selfCarePostData) {
-  res.status(404).json({ message: 'No self care post found with this id!' });
-  return;
-}
+    if (!selfCarePostData) {
+      res.status(404).json({ message: 'No self care post found with this id!' });
+      return;
+    }
 
-res.status(200).json(podData);
-} catch (err) {
-res.status(500).json(err);
-}
+    res.status(200).json(podData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;

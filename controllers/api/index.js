@@ -12,7 +12,7 @@ router.use('/user', userRoutes);
 router.use('/pod', podRoutes);
 router.use('/projects', projectRoutes);
 router.use('/self-care', selfCareRoutes);
-//router.use('/profile', profileRoutes);
+// router.use('/profile', profileRoutes);
 //router.use('/blog-post', postRoutes);
 //router.use('/comment', commentRoutes);
 

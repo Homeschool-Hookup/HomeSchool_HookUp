@@ -1,6 +1,7 @@
 // const router = require('express').Router();
 // //const Profile = require('../../models/Profile');
-// const { Pod, Project, SelfCarePost} = require('../../models');
+// const { Pod, Project, SelfCarePost } = require('../../models');
+
 // const withAuth = require("../utils/auth");
 
 // // route to create/add a profile using async/await
@@ -42,6 +43,5 @@
 //   res.status(400).json(err);
 // }
 // });
-
 
 // module.exports = router;

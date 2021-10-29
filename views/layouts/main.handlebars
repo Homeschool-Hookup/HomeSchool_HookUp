@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="/style.css">
+    {{!--
+    <link rel="stylesheet" href="/style.css"> --}}
     <title>HomeSchool Hookup</title>
 </head>
 
@@ -15,9 +16,14 @@
     <header>
         <nav class="navbar has-background-link-dark has-text-white " role="navigation" aria-label="main navigation">
             <div class="navbar-brand is-flex is-align-items-center is-size-3">
-                <h1 id="headerText ">HomeSchool HookUp</h1>
+                <h1 class="headerText ">HomeSchool HookUp</h1>
+                <span class="navbar-burger burger" data-target="navbar">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
             </div>
-            <div id="navbar" class="navbar-menu is-active">
+            <div id="navbar" class="navbar-menu ">
                 <div class="navbar-end">
                     <a class="navbar-item has-text-white" href="/">
                         Home
@@ -44,7 +50,7 @@
                     <a class="navbar-item has-text-white" href="/login">
                         Login
                     </a>
-                    <a class="navbar-item has-text-white" href="/">
+                    <a class="navbar-item has-text-white" id="logout" href="/">
                         Logout
                     </a>
                     <a class="navbar-item has-text-white" href="/signup">
@@ -56,6 +62,17 @@
         </nav>
     </header>
     {{{body}}}
+    <script>
+        (function () {
+            var burger = document.querySelector(".burger");
+            var nav = document.querySelector("#" + burger.dataset.target);
+
+            burger.addEventListener("click", function () {
+                burger.classList.toggle("is-active");
+                nav.classList.toggle("is-active");
+            });
+        })();
+    </script>
 </body>
 
 </html>

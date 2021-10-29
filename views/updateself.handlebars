@@ -1,22 +1,23 @@
 <div class="columns">
-    <div class="column">
-        <h1 class="has-text-danger is-size-2">Update Your Post</h1>
+    <div class="column is-10 is-offset-1 mt-4">
+        <h1 class="has-text-danger is-size-2 pt-2 pb-4">Update Your Post</h1>
         <div class="field">
-            <label class="label">Title</label>
+            <label class="label has-text-link">Title</label>
             <div class="control has-icons-left has-icons-right">
                 <input class="input is-link" type="text" placeholder="Title" value="{{post.title}}" id="selfTitle">
             </div>
         </div>
         <div class="field">
-            <label class="label">Please include a description of what helped you and/or your family unwind, as well
+            <label class="label has-text-link pt-2">Please include a description of what helped you and/or your family
+                unwind, as well
                 as
                 any resources you've found helpful!</label>
             <input class="input is-link" type="text" placeholder="What helps you unwind?" value="{{post.content}}"
                 id="selfContent">
         </div>
-        <div class="field">
+        <div class="field py-3">
             <div class="control">
-                <button class="button is-warning" id="submitCare">Update</button>
+                <button class="button is-rounded is-warning" id="submitCare">Update</button>
             </div>
         </div>
     </div>

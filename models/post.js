@@ -11,19 +11,26 @@
 //       primaryKey: true,
 //       autoIncrement: true,
 //     },
-//     title: {
-//       type: DataTypes.STRING,
-//       allowNull: false,
-//     },
-//     content: {
-//       type: DataTypes.TEXT,
-//       validate: {
-//         len: [10],
+//     podPost_id: {
+//       type: DataTypes.INTEGER,
+//       references: {
+//         model: "pod-post",
+//         key: "id",
 //       },
 //     },
-//     email: {
-//       type: DataTypes.STRING,
-//       allowNull: false,
+//     projectPost_id: {
+//       type: DataTypes.INTEGER,
+//       references: {
+//         model: "project-post",
+//         key: "id",
+//       },
+//     },
+//     selfCarePost_id: {
+//       type: DataTypes.INTEGER,
+//       references: {
+//         model: "self_care_post",
+//         key: "id",
+//       },
 //     },
 //     user_id: {
 //       type: DataTypes.INTEGER,

@@ -16,4 +16,11 @@
         {{/each}}
     </div>
 
-    <script src="/js/newproject.js"></script>
+    <script>
+        document.querySelector("#newProject").addEventListener("click", () => {
+            document.location.replace("/api/projects/new")
+        })
+    </script>
+
+    {{!--
+    <script src="/js/newproject.js"></script> --}}

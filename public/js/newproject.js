@@ -5,7 +5,7 @@ const createProjectFormHandler = async function (event) {
   const projectContent = document.querySelector('input[id="projectContent"]').value;
 
   if (body) {
-    await fetch('/api/projects/', {
+    await fetch('/api/projects/allprojectposts', {
       method: 'POST',
       body: JSON.stringify({
         projectTitle,

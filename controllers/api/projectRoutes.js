@@ -26,7 +26,7 @@ router.get('/allprojects', async (req, res) => {
   res.render('allprojectposts');
 });
 
-router.get('/:id', withAuth, async (req, res) => {
+router.get('/allprojects/:id', withAuth, async (req, res) => {
   const body = req.body;
 
   try {
@@ -44,7 +44,13 @@ router.get('/projects/:id', async (req, res) => {
   return res.render('allprojectposts', project[req.params.num - 1]);
 });
 
-router.post('/', withAuth, async (req, res) => {
+router.get('/new', (req, res) => {
+  res.render('newprojectpost', {
+    layout: 'main',
+  });
+});
+
+router.post('/allprojects', async (req, res) => {
   try {
     const newProject = await Project.create({
       ...req.body,

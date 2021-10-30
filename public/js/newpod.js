@@ -12,14 +12,13 @@ const createPodFormHandler = async function (event) {
       method: "POST",
       body: JSON.stringify({
         title: podTitle,
-        content: podEmail,
+        content: content,
         email: podEmail,
       }),
       headers: {
         "Content-Type": "application/json",
       },
     });
-    console.log(response);
 
     document.location.replace("/api/pod/allpodpost");
   }

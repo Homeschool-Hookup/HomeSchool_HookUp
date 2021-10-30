@@ -8,7 +8,7 @@ const createPodFormHandler = async function (event) {
   console.log(content);
   console.log(podEmail);
   if (podTitle && content && podEmail) {
-    const response = await fetch("/api/pod/allpodpost/new?", {
+    const response = await fetch("/api/pod/allpodpost/new", {
       method: "POST",
       body: JSON.stringify({
         title: podTitle,

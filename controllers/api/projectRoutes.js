@@ -1,56 +1,32 @@
-const router = require('express').Router();
-const { Project, User } = require('../../models');
-const withAuth = require('../../utils/auth');
+const router = require("express").Router();
+const { Project, User } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-router.get('/allprojects', async (req, res) => {
+router.get("/allprojects", async (req, res) => {
   try {
     const newProject = await Project.findAll({
-      include: [User]
-      // ...req.body,
-      // user_id: req.session.user_id,
+      include: [User],
     });
 
     const projects = newProject.map((project) => project.get({ plain: true }));
     console.log("projects", projects);
     res.render("allprojectposts", {
       layout: "main",
-      projects
-    })
+      projects,
+    });
     // res.status(200).json(newPod);
-  } catch (err) {
-    res.status(500).json(err);
-  };
-});
-
-router.get('/allprojects', async (req, res) => {
-  res.render('allprojectposts');
-});
-
-router.get('/allprojects/:id', withAuth, async (req, res) => {
-  const body = req.body;
-
-  try {
-    const newProject = await Project.findByPk({ ...body, userId: req.session.userId });
-    res.json(newProject);
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
-// Get a project
-router.get('/projects/:id', async (req, res) => {
-  // This method renders the 'project' template, and uses params to select the correct project to render in the template, based on the id of the project.
-  // Now, we have access to a project description in the 'project' template.
-  return res.render('allprojectposts', project[req.params.num - 1]);
-});
-
-router.get('/new', (req, res) => {
-  res.render('newprojectpost', {
-    layout: 'main',
+//render new project post
+router.get("/allprojects/new", (req, res) => {
+  res.render("newprojectpost", {
+    layout: "main",
   });
 });
 
-router.post('/allprojects/new', withAuth, async (req, res) => {
+router.post("/allprojects/new", withAuth, async (req, res) => {
   try {
     const newProject = await Project.create({
       ...req.body,
@@ -61,8 +37,36 @@ router.post('/allprojects/new', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-router.put('/:id', withAuth, async (req, res) => {
+//get single pod post, render single pod
+router.get("/allprojects/:id", withAuth, async (req, res) => {
+  try {
+    const projectData = await Project.findByPk(req.params.id, {
+      include: [User],
+    });
+    const project = projectData.get({ plain: true });
+    res.render("singleproject", { project });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+//render updated page
+router.get("/allprojects/edit/:id", withAuth, async (req, res) => {
+  try {
+    const projectData = await Project.findByPk(req.params.id, {
+      include: [User],
+    });
+    if (projectData) {
+      const project = projectData.get({ plain: true });
+      res.render("updateproject", { project });
+    } else {
+      res.status(404).end();
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+//update project
+router.put("/allprojects/edit/:id", withAuth, async (req, res) => {
   try {
     const [affectedRows] = await Project.update(req.body, {
       where: {
@@ -80,17 +84,16 @@ router.put('/:id', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete("/allprojects/edit/:id", withAuth, async (req, res) => {
   try {
     const projectData = await Project.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
       },
     });
 
     if (!projectData) {
-      res.status(404).json({ message: 'No project found with this id!' });
+      res.status(404).json({ message: "No project found with this id!" });
       return;
     }
 

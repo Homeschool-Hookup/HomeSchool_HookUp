@@ -1,20 +1,61 @@
 # HomeSchool_HookUp
 
+"Homeschool Hookup” is an application that connects the students and parents of a certain radius to create a social pod that’s tailored to the needs of the students and the parents.
+
 ## Task
 
-With our team, we’ll conceive and execute a design that solves a real-world problem. In creating your first collaborative full-stack application, you’ll combine a robust back end--with servers, databases, advanced APIs, and user authentication—-to an intuitive front end. You’ll continue to build on the agile development methodologies you’ve used throughout this course, like storing your project code in GitHub, managing your work with a project management tool, and implementing feature and bug fixes using the Git branch workflow and pull requests.
-
-Instead of using the front end you developed for your first project, you should start from scratch. Doing so will help you reinforce your existing front-end abilities and solidify your understanding of the dynamic between the front end and back end. Also, you’ve likely improved your skills since that first project, so with a stronger foundation now you can build a better application, using all of the additional practice you’ve had in the last several weeks.
+With our team, we conceive and execute a design that solves a real-world problem. In creating our first collaborative full-stack application, we combine a robust back end--with servers, databases, advanced APIs, and user authentication—-to an intuitive front end. We continue to build on the agile development methodologies we’ve used throughout this course, like storing our project code in GitHub, managing our work with a project management tool, and implementing feature and bug fixes using the Git branch workflow and pull requests.
 
 ## User Story
+
+```md
+ As a parent of school-age children, I need an app that helps me connect with other families and resources like pod, projects and self care  so that my student has optimal social and learning opportunities outside of a traditional school setting.
+ ```
+
 ## Description
 
  ![License](https://img.shields.io/badge/License-MIT-yellow)
 
  This is a full-stack web application. Our team design and build an application using the MVC paradigm, with own server-side API, added user authentication and connect it to a database.
 
-## Screenshot
-![HomeSchool_HookUp]()
+```md
+ GIVEN a HomeSchool-HookUp web application
+ WHEN I click the Home section
+ THEN I am presented with a beautiful carousel of pictures of students , description about app and navbar with different links
+ WHEN I click on Signup
+ THEN I am presented with signup form
+ WHEN I click on Login 
+ THEN I am presented with Login form
+ WHEN I go to Post 
+ THEN it show drop down list with Pod, Project and Self Care option
+ WHEN I click on Pod, Project, Self Care
+ THEN I am presented with a relative page with existing pods, projects or Self Care posts.
+ WHEN I create new pod, project or self care post
+ THEN I can see that on relative page
+ WHEN I select title of pod, project or self care post
+ THEN I am presented with a page with edit option for related posts
+ WHEN I clicked update or delete 
+ THEN I am able to update or delete posts
+ WHEN I clicked profile
+ THEN I am presented with profile page
+ WHEN I clicked logout
+ THEN I am redirected to homepage
+ ```
+
+## Screen-Shots
+
+![A webpage HomeSchool_HookUp](assets/Homepage1.png)
+
+![Homepage with Description](assets/Homepage2.png)
+
+![Signup Page](assets/Signup.png)
+
+![Login Page](assets/Login.png)
+
+![Profile Page](assets/Profile.png)
+
+![In Post section when you click Projects then it display all projects](assets/ProjectPost.png)
+
 ## Key Topics
 
 The following topics will be covered in this project:
@@ -38,7 +79,7 @@ The following topics will be covered in this project:
 * Have both GET and POST routes for retrieving and adding new data. 
   As well PUT and DELETE routes for update abd delete data.
 
-* We Use one new package bulma that we haven’t discussed in BootCamp class.
+* We use one new technology, package Bulma CSS Framework that we haven’t work with in BootCamp class.
 
 * Have a folder structure that meets the MVC paradigm.
 
@@ -46,7 +87,14 @@ The following topics will be covered in this project:
 
 * Protect API keys and sensitive information with environment variables.
 
-* Be deployed using Heroku (with data).
+* Is deployed using Heroku (with data).
+
+* Have a polished UI.
+
+* Is responsive.
+
+* Is interactive. 
+
 ## Table Of Contents
 
 - [Installation](#installation)
@@ -61,13 +109,16 @@ The following topics will be covered in this project:
 
 The following necessary dependencies must be installed to run the application.
 
-  For this application user needs to install below dependencies : node.js, express.js, express-handlebars, MYSQL, sequelize, bcrypt, bulma, bulma-carousel, dotenv, ecpress-session and connect-session-seuelize
+  ```md
+   node.js, express.js, express-handlebars, mysql2, sequelize, bcrypt, bulma, bulma-carousel, dotenv, express-session and connect-session-sequelize
+   ```
 
 ## Usage
 
- An user can invoked the application with node server.js command in terminal, or an user can visit deployed web application.
+ An user can invoked the application with node server.js or nodemon server.js (you need to install nodemon as dev dependencies first)command in terminal, or an user can visit deployed web application.
 
 ## Test
+  N/A
 
 ## License
 
@@ -83,18 +134,27 @@ Caitlin Wall, Rose Luu, Bryanna Vinge and Bindubahen Vaghela
 
 ## Contact
 
-* GitHub :[Homeschool-Hookup](add github link)
-* Email : caitlinwall96@gmail.com, luuhongnhung10@gmail.com, bindi.vaghela@gmail.com
+* GitHub :[Homeschool-Hookup](https://github.com/Homeschool-Hookup)
+
+* Email : caitlinwall96@gmail.com, 
+          luuhongnhung10@gmail.com,
+          bevinge711@gmail.com, 
+          bindi.vaghela@gmail.com
     
 ## Questions
 
 If you have any questions, please reach out to our Github,
 
-* [Homeschool-Hookup]()
+* [Homeschool-Hookup](https://github.com/Homeschool-Hookup)
 
 ## Presentation Link
 
-* The URL of the deployed application
+* [PowerPoint Presentation](https://docs.google.com/presentation/d/1HZMUus7v0lnBxk-RvF6nIwsYdlGleCJsVJtFXbDlO-E/edit?usp=sharing)
 
-* The URL of the GitHub repository
+## Deployed Link
+
+* [The URL of the deployed application]()
+
+* [The URL of the GitHub repository](https://github.com/Homeschool-Hookup/HomeSchool_HookUp)
+
 #### Thank you for visiting our Github!

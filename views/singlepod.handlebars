@@ -1,5 +1,30 @@
 <div class="columns">
-    <div class="column is-10 is-offset-1 mt-4">
-        {{>podpost-info}}
+  <div class="column is-10 is-offset-1 mt-4">
+    <div class="card has-background-link-light">
+      <header class="card-header">
+        <p
+          class="card-header-title has-background-warning-light has-text-danger"
+        >
+          <a href="api/pod/allpodpost/{{pod.id}}">{{pod.title}}</a>
+        </p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <a href="mailto:{{email}}">Email: {{pod.email}}</a>
+          <p class="has-text-link"> {{pod.content}} </p>
+        </div>
+        <footer class="card-footer is-link">
+          <p class="has-text-link-dark">Created by:
+            {{pod.user.username}}
+            on
+            {{format_date pod.createdAt}}</p>
+        </footer>
+      </div>
     </div>
+    <button
+      type="button"
+      id="editPod-btn"
+      class="button is-rounded is-warning"
+    ><a href="edit/{{pod.id}}">Edit Post</a></button>
+  </div>
 </div>

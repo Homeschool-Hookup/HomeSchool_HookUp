@@ -21,7 +21,7 @@ const createPodFormHandler = async function (event) {
     });
     console.log(response);
 
-    document.location.replace("/api/pod/allpodpost");
+    document.location.replace("/api/pod/allpodpost/new");
   }
 };
 

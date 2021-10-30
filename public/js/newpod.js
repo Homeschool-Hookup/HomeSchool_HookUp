@@ -12,7 +12,7 @@ const createPodFormHandler = async function (event) {
       method: "POST",
       body: JSON.stringify({
         title: podTitle,
-        content: podEmail,
+        content: content,
         email: podEmail,
       }),
       headers: {

@@ -51,10 +51,12 @@ router.get('/allselfcare/new', (req, res) => {
 });
 
 router.post('/allselfcare/new', withAuth, async (req, res) => {
-  const body = req.body;
-
+  // const body = req.body;
   try {
-    const newSelfCarePost = await SelfCarePost.create({ ...body, userId: req.session.userId });
+    const newSelfCarePost = await SelfCarePost.create({
+      ...req.body,
+      userId: req.session.userId
+    });
     res.json(newSelfCarePost);
   } catch (err) {
     res.status(500).json(err);

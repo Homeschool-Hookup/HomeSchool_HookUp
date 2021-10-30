@@ -1,22 +1,28 @@
+// const { response } = require("express");
+
 const createSelfCareFormHandler = async function (event) {
   event.preventDefault();
+  const selfTitle = document.querySelector('#selfTitle').value;
+  const selfContent = document.querySelector('#selfContent').value;
+  console.log(selfContent)
 
-  const selfTitle = document.querySelector('input[id="selfTitle"]').value;
-  const selfContent = document.querySelector('input[id="selfContent"]').value;
-
-  if (body) {
-    await fetch('/api/self-care/', {
+  if (selfTitle && selfContent) {
+    const response = await fetch(`/api/self-care/allselfcare/new`, {
       method: 'POST',
       body: JSON.stringify({
-        selfTitle,
-        selfContent
+        title: selfTitle,
+        content: selfContent
       }),
       headers: {
         'Content-Type': 'application/json'
       }
     });
-
-    document.location.reload();
+    console.log(response)
+    if (response.ok) {
+      document.location.replace("/api/self-care/allselfcare");
+    } else {
+      alert("Failed to Post");
+    }
   }
 };
 

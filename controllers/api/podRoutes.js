@@ -27,18 +27,23 @@ router.get('/allpodpost', async (req, res) => {
   res.render('allpodpost');
 });
 
-router.get('/:id', withAuth, async (req, res) => {
-  const body = req.body;
-
+router.get('/allpodpost/:id', withAuth, async (req, res) => {
+  // const body = req.body;
   try {
-    const newPod = await Pod.find({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
+    const newPod = await Pod.findByPk(req.params.id);
 
-    res.status(200).json(newPod);
+    if (newPod) {
+      const pod = newPod.get({ plain: true });
+
+      res.render("singlepod", {
+        layout: "main",
+        pod
+      });
+    } else {
+      res.status(404).end();
+    }
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 

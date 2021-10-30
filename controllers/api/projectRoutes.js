@@ -27,15 +27,25 @@ router.get('/allprojects', async (req, res) => {
 });
 
 router.get('/allprojects/:id', withAuth, async (req, res) => {
-  const body = req.body;
-
+  // const body = req.body;
   try {
-    const newProject = await Project.findByPk({ ...body, userId: req.session.userId });
-    res.json(newProject);
+    const newProject = await Project.findByPk(req.params.id);
+
+    if (newProject) {
+      const project = newProject.get({ plain: true });
+
+      res.render("singleproject", {
+        layout: "main",
+        pod
+      });
+    } else {
+      res.status(404).end();
+    }
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
 
 // Get a project
 router.get('/projects/:id', async (req, res) => {

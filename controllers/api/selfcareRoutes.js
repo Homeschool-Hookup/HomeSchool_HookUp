@@ -26,12 +26,21 @@ router.get('/allselfcare', async (req, res) => {
   res.render('allselfcare');
 });
 
-router.get('/:id', withAuth, async (req, res) => {
-  const body = req.body;
-
+router.get('/allselfcare/:id', withAuth, async (req, res) => {
+  // const body = req.body;
   try {
-    const newSelfCarePost = await SelfCarePost.findByPk({ ...body, userId: req.session.userId });
-    res.json(newSelfCarePost);
+    const newSelf = await SelfCarePost.findByPk(req.params.id);
+
+    if (newSelf) {
+      const self = newSelf.get({ plain: true });
+
+      res.render("singleself", {
+        layout: "main",
+        self
+      });
+    } else {
+      res.status(404).end();
+    }
   } catch (err) {
     res.status(500).json(err);
   }

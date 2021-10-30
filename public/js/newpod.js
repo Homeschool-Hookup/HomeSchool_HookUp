@@ -1,27 +1,29 @@
 const createPodFormHandler = async function (event) {
   event.preventDefault();
-  console.log("button clicked")
+  console.log("button clicked");
   const podTitle = document.querySelector('input[id="podTitle"]').value;
-  const content = document.querySelector('input[id="content"]').value;
-  const posterEmail = document.querySelector('input[id="posterEmail"]').value;
-
-  if (body) {
-    await fetch('/api/allpodpost/', {
-      method: 'POST',
+  const content = document.querySelector("#content").value;
+  const podEmail = document.querySelector("#posterEmail").value;
+  console.log(podTitle);
+  console.log(content);
+  console.log(podEmail);
+  if (podTitle && content && podEmail) {
+    const response = await fetch("/api/pod/allpodpost/new", {
+      method: "POST",
       body: JSON.stringify({
-        podTitle,
-        content,
-        posterEmail
+        title: podTitle,
+        content: content,
+        email: podEmail,
       }),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        "Content-Type": "application/json",
+      },
     });
 
-    document.location.replace("/blog-post/new");
+    document.location.replace("/api/pod/allpodpost");
   }
 };
 
 document
-  .querySelector('#newPodPost')
-  .addEventListener('click', createPodFormHandler);
+  .querySelector("#newPod-form")
+  .addEventListener("submit", createPodFormHandler);

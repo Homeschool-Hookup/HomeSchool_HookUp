@@ -1,5 +1,29 @@
 <div class="columns">
-    <div class="column is-10 is-offset-1 mt-4">
-        {{>projectpost-info}}
+  <div class="column is-10 is-offset-1 mt-4">
+    <div class="card has-background-link-light">
+      <header class="card-header">
+        <p
+          class="card-header-title has-background-warning-light has-text-danger"
+        >
+          {{project.title}}
+        </p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <p class="has-text-link"> {{project.content}} </p>
+        </div>
+        <footer class="card-footer is-link">
+          <p class="has-text-link-dark">Created by:
+            {{project.user.username}}
+            on
+            {{format_date project.createdAt}}</p>
+        </footer>
+      </div>
     </div>
+    <button
+      type="button"
+      id="editSelf-btn"
+      class="button is-rounded is-warning"
+    ><a href="edit/{{project.id}}">Edit Post</a></button>
+  </div>
 </div>

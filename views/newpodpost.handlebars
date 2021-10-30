@@ -5,19 +5,19 @@
             <div class="field">
                 <div class="field">
                     <label class="label has-text-link">Title:</label>
-                    <input class="input is-link" type="text" placeholder="Title" value="" id="podTitle">
+                    <input class="input is-link" type="text" placeholder="Title" id="podTitle" value= {{title}}>
                 </div>
                 <div class="field">
                     <label class="label has-text-link pt-2">Please include your location, the ages of your children, and
                         a
                         general idea of what
                         you're looking for in a pod as well as any unique skills you can bring to the pod!</label>
-                    <input class="input is-link" type="text" value="" id="content">
+                    <input class="input is-link" type="text" id="content" value={{content}}>
                 </div>
                 <div class="field">
                     <label class="label has-text-link">Email:</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input is-link" type="email" placeholder="Email input" value="" id="posterEmail">
+                        <input class="input is-link" type="email" placeholder="Email input" id="posterEmail" value={{email}}>
                         <span class="icon is-small is-left">
                             <i class="fas fa-envelope"></i>
                         </span>
@@ -25,9 +25,11 @@
                 </div>
                 <div class="field py-3">
                     <div class="control">
-                        <button class="button is-rounded is-warning" id="submitPodPost">Create</button>
+                        <button type='submit' class="button is-rounded is-warning" value="Add Pod" id="submitPodPost">Create</button>
                     </div>
                 </div>
         </form>
     </div>
 </div>
+
+<script src="/js/newpod.js"></script>

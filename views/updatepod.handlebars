@@ -1,32 +1,63 @@
 <div class="columns">
-    <div class="column is-10 is-offset-1 mt-4">
-        <h1 class="has-text-danger is-size-2 pt-2 pb-4">Update Your Post</h1>
-        <form id="editPod-form">
-            <div class="field">
-                <label class="label has-text-link">Title</label>
-                <input class="input is-link" type="text" value="{{post.title}}" id="podTitle">
-            </div>
-            <div class="field">
-                <label class="label has-text-link pt-2">Please include your location, the ages of your children, and a
-                    general idea of what
-                    you're looking for in a pod as well as any unique skills you can bring to the pod!</label>
-                <input class="input is-link" type="text" value="{{post.content}}" id="content">
-            </div>
-            <div class="field">
-                <label class="label has-text-link">Email</label>
-                <div class="control has-icons-left has-icons-right">
-                    <input class="input is-link" type="email" placeholder="Email input" value="{{post.email}}"
-                        id="posterEmail">
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-envelope"></i>
-                    </span>
-                </div>
-            </div>
-            <div class="field py-3">
-                <div class="control">
-                    <button class="button is-rounded is-warning" id="submitPodPost">Update</button>
-                </div>
-            </div>
-        </form>
-    </div>
+  <div class="column is-10 is-offset-1 mt-4">
+    <h1 class="has-text-danger is-size-2 pt-2 pb-4">Update Your Post</h1>
+    <form id="editPod-form">
+      <div class="field">
+        <input
+          type="hidden"
+          name="pod-id"
+          id="podUpdateId"
+          value="{{pod.id}}"
+        />
+        <label class="label has-text-link">Title</label>
+        <input
+          class="input is-link"
+          type="text"
+          id="podTitle"
+          value="{{pod.title}}"
+        />
+      </div>
+      <div class="field">
+        <label class="label has-text-link pt-2">Please include your location,
+          the ages of your children, and a general idea of what you're looking
+          for in a pod as well as any unique skills you can bring to the pod!</label>
+        <input
+          class="input is-link"
+          type="text"
+          id="content"
+          value="{{pod.content}}"
+        />
+      </div>
+      <div class="field">
+        <label class="label has-text-link">Email</label>
+        <div class="control has-icons-left has-icons-right">
+          <input
+            class="input is-link"
+            type="email"
+            placeholder="Email input"
+            id="podEmail"
+            value="{{pod.email}}"
+          />
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </div>
+      </div>
+      <div class="field py-3">
+        <div class="control">
+          <button
+            class="button is-rounded is-warning"
+            id="submitPodPost"
+          >Update</button>
+          <button
+            type="button"
+            id="deletePod-btn"
+            class="button is-rounded is-warning"
+          >Delete</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
+
+<script src="/js/editpod.js"></script>

@@ -67,7 +67,7 @@ router.get("/allpodpost/edit/:id", withAuth, async (req, res) => {
       res.status(404).end();
     }
   } catch (err) {
-    res.redirect("login");
+    res.status(500).json(err);
   }
 });
 router.put("/allpodpost/edit/:id", withAuth, async (req, res) => {

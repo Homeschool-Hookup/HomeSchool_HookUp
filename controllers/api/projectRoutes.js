@@ -50,16 +50,15 @@ router.get('/new', (req, res) => {
   });
 });
 
-router.post('/allprojects', async (req, res) => {
+router.post('/allprojects/new', withAuth, async (req, res) => {
   try {
     const newProject = await Project.create({
       ...req.body,
-      user_id: req.session.user_id,
+      userId: req.session.userId,
     });
-
     res.status(200).json(newProject);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 

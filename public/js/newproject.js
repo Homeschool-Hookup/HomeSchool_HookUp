@@ -1,22 +1,27 @@
 const createProjectFormHandler = async function (event) {
   event.preventDefault();
 
-  const projectTitle = document.querySelector('input[id="projectTitle"]').value;
-  const projectContent = document.querySelector('input[id="projectContent"]').value;
+  const projectTitle = document.querySelector('#projectTitle').value;
+  const projectContent = document.querySelector('#projectContent').value;
+  console.log(projectContent)
 
-  if (body) {
-    await fetch('/api/projects/allprojectposts', {
+  if (projectTitle && projectContent) {
+    const response = await fetch('/api/projects/allprojects/new', {
       method: 'POST',
       body: JSON.stringify({
-        projectTitle,
-        projectContent
+        title: projectTitle,
+        content: projectContent
       }),
       headers: {
         'Content-Type': 'application/json'
       }
     });
-
-    document.location.reload();
+    console.log(response)
+    if (response.ok) {
+      document.location.replace("/api/projects/allprojects");
+    } else {
+      alert("Failed to Post");
+    }
   }
 };
 

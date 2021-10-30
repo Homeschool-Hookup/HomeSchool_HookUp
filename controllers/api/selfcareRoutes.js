@@ -16,6 +16,30 @@ router.get("/allselfcare", async (req, res) => {
     // res.status(200).json(newPod);
   } catch (err) {
     res.status(500).json(err);
+  };
+});
+
+router.get('/allselfcare', async (req, res) => {
+  res.render('allselfcare');
+});
+
+router.get('/allselfcare/:id', withAuth, async (req, res) => {
+  // const body = req.body;
+  try {
+    const newSelf = await SelfCarePost.findByPk(req.params.id);
+
+    if (newSelf) {
+      const self = newSelf.get({ plain: true });
+
+      res.render("singleself", {
+        layout: "main",
+        self
+      });
+    } else {
+      res.status(404).end();
+    }
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 

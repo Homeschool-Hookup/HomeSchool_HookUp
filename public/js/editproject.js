@@ -20,7 +20,7 @@ const editProjectFormHandler = async function (event) {
 };
 
 const deleteProjectHandler = async function () {
-  await fetch(`/api/projects//allprojects/edit/${projectID}`, {
+  await fetch(`/api/projects/allprojects/edit/${projectID}`, {
     method: "DELETE",
   });
   document.location.replace("/api/projects//allprojects");

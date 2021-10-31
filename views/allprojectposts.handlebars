@@ -6,7 +6,7 @@
         </h3>
         <div class="field py-4">
             <div class="button">
-                <button class="button is-rounded is-warning" id="newProject"> <a href="/api/projects/allprojects/new">Create a
+                <button class="button is-rounded is-warning" id="newProject"> <a href="allprojects/new">Create a
                     new
                     post!</a></button>
             </div>
@@ -18,7 +18,7 @@
 
     <script>
         document.querySelector("#newProject").addEventListener("click", () => {
-            document.location.replace("/api/projects/new")
+            document.location.replace("/api/projects/allprojects/new")
         })
     </script>
 

@@ -1,23 +1,21 @@
-// const { response } = require("express");
-
 const createSelfCareFormHandler = async function (event) {
   event.preventDefault();
-  const selfTitle = document.querySelector('#selfTitle').value;
-  const selfContent = document.querySelector('#selfContent').value;
-  console.log(selfContent)
+  const selfTitle = document.querySelector("#selfTitle").value;
+  const selfContent = document.querySelector("#selfContent").value;
+  console.log(selfContent);
 
   if (selfTitle && selfContent) {
     const response = await fetch(`/api/self-care/allselfcare/new`, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify({
         title: selfTitle,
-        content: selfContent
+        content: selfContent,
       }),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        "Content-Type": "application/json",
+      },
     });
-    console.log(response)
+    console.log(response);
     if (response.ok) {
       document.location.replace("/api/self-care/allselfcare");
     } else {
@@ -27,5 +25,5 @@ const createSelfCareFormHandler = async function (event) {
 };
 
 document
-  .querySelector('#newSelf-form')
-  .addEventListener('submit', createSelfCareFormHandler);
+  .querySelector("#newSelf-form")
+  .addEventListener("submit", createSelfCareFormHandler);

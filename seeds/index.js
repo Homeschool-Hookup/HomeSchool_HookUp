@@ -29,22 +29,6 @@ const seedDatabase = async () => {
     returning: true,
   });
   console.log("\n----- SELF CARE POST TABLE ---\n");
-  // await Post.bulkCreate(postData, {
-  //   individualHooks: true,
-  //   returning: true,
-  // });
-  // console.log("\n----- POST TABLE ---\n");
-  // await Tag.bulkCreate(tagData, {
-  //   individualHooks: true,
-  //   returning: true,
-  // });
-  // console.log("\n----- TAG TABLE ---\n");
-  // await PostTag.bulkCreate(postTagData, {
-  //   individualHooks: true,
-  //   returning: true,
-  // });
-  // console.log("\n----- POST TAGS TABLE ---\n");
-
   process.exit(0);
 };
 

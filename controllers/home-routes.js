@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require("../models");
+const { User, Pod, Project, SelfCarePost } = require("../models");
 const withAuth = require("../utils/auth");
 //const Profile = require('../models/Profile');
 
@@ -48,7 +48,6 @@ router.get("/profile", withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-  // res.render("profile");
 });
 
 router.get("/login", (req, res) => {

@@ -1,7 +1,7 @@
 const createPodFormHandler = async function (event) {
   event.preventDefault();
   console.log("button clicked");
-  const podTitle = document.querySelector('input[id="podTitle"]').value;
+  const podTitle = document.querySelector('#podTitle').value;
   const content = document.querySelector("#content").value;
   const podEmail = document.querySelector("#posterEmail").value;
   console.log(podTitle);
@@ -19,8 +19,12 @@ const createPodFormHandler = async function (event) {
         "Content-Type": "application/json",
       },
     });
-
-    document.location.replace("/api/pod/allpodpost");
+    console.log(response)
+    if (response.ok) {
+      document.location.replace("/api/pod/allpodpost");
+    } else {
+      alert("Failed to Post");
+    }
   }
 };
 

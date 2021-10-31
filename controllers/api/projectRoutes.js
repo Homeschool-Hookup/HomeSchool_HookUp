@@ -5,7 +5,6 @@ const withAuth = require("../../utils/auth");
 router.get("/allprojects", async (req, res) => {
   try {
     const newProject = await Project.findAll({
-      include: [User],
     });
 
     const projects = newProject.map((project) => project.get({ plain: true }));

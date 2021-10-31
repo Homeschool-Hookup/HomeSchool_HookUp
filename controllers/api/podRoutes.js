@@ -5,7 +5,7 @@ const withAuth = require("../../utils/auth");
 router.get("/allpodpost", withAuth, async (req, res) => {
   try {
     const newPod = await Pod.findAll({
-      include: [User],
+      include: [{ model: User }],
     });
     const pods = newPod.map((pod) => pod.get({ plain: true }));
     console.log("pods", pods);
@@ -57,6 +57,18 @@ router.get("/allpodpost/:id", withAuth, async (req, res) => {
     res.render("singlepod", { pod });
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+router.post("/allpodpost/new", withAuth, async (req, res) => {
+  try {
+    const newPod = await Pod.create({
+      ...req.body,
+      userId: req.session.userId,
+    });
+    res.status(200).json(newPod);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 

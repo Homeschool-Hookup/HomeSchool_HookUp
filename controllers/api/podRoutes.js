@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { Pod, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-router.get("/allpodpost", async (req, res) => {
+router.get("/allpodpost", withAuth, async (req, res) => {
   try {
     const newPod = await Pod.findAll({
       include: [User],
@@ -19,7 +19,7 @@ router.get("/allpodpost", async (req, res) => {
 });
 
 //render newpodpost
-router.get("/allpodpost/new", (req, res) => {
+router.get("/allpodpost/new", withAuth, (req, res) => {
   res.render("newpodpost", {
     layout: "main",
   });
@@ -29,7 +29,7 @@ router.post("/allpodpost/new", withAuth, async (req, res) => {
   try {
     const newPod = await Pod.create({
       ...req.body,
-      user_id: req.session.user_id,
+      user_id: req.session.userId,
     });
 
     res.status(200).json(newPod);

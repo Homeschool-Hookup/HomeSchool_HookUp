@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { Project, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-router.get("/allprojects", async (req, res) => {
+router.get("/allprojects", withAuth, async (req, res) => {
   try {
     const newProject = await Project.findAll({
       include: [User],
@@ -20,7 +20,7 @@ router.get("/allprojects", async (req, res) => {
   }
 });
 //render new project post
-router.get("/allprojects/new", (req, res) => {
+router.get("/allprojects/new", withAuth, (req, res) => {
   res.render("newprojectpost", {
     layout: "main",
   });

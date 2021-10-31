@@ -26,7 +26,7 @@ Pod.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       references: {
         model: "user",

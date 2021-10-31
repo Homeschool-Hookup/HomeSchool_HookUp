@@ -5,7 +5,7 @@ const withAuth = require("../../utils/auth");
 router.get("/allpodpost", withAuth, async (req, res) => {
   try {
     const newPod = await Pod.findAll({
-      include: [{ model: User }],
+      include: [User],
     });
     const pods = newPod.map((pod) => pod.get({ plain: true }));
     console.log("pods", pods);

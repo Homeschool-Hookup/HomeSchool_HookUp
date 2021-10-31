@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { SelfCarePost, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-router.get("/allselfcare", async (req, res) => {
+router.get("/allselfcare", withAuth, async (req, res) => {
   try {
     const newSelfCarePost = await SelfCarePost.findAll({
       include: [User],
@@ -43,7 +43,7 @@ router.get('/allselfcare/:id', withAuth, async (req, res) => {
   }
 });
 
-router.get("/allselfcare", async (req, res) => {
+router.get("/allselfcare", withAuth, async (req, res) => {
   res.render("allselfcare");
 });
 
@@ -68,7 +68,7 @@ router.get("/allselfcare", async (req, res) => {
 //   return res.render("allselfcare", selfCarePost[req.params.num - 1]);
 // });
 
-router.get("/allselfcare/new", (req, res) => {
+router.get("/allselfcare/new", withAuth, (req, res) => {
   res.render("newselfcare", {
     layout: "main",
   });

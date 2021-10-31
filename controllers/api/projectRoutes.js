@@ -2,9 +2,10 @@ const router = require("express").Router();
 const { Project, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-router.get("/allprojects", async (req, res) => {
+router.get("/allprojects", withAuth, async (req, res) => {
   try {
     const newProject = await Project.findAll({
+      include: [User],
     });
 
     const projects = newProject.map((project) => project.get({ plain: true }));
@@ -45,13 +46,13 @@ router.get('/allprojects/:id', withAuth, async (req, res) => {
 
 
 // Get a project
-router.get('/projects/:id', async (req, res) => {
+router.get('/projects/:id', withAuth, async (req, res) => {
   // This method renders the 'project' template, and uses params to select the correct project to render in the template, based on the id of the project.
   // Now, we have access to a project description in the 'project' template.
   return res.render('allprojectposts', project[req.params.num - 1]);
 });
 
-router.get('/new', (req, res) => {
+router.get('/new', withAuth, (req, res) => {
   res.render('newprojectpost', {
     layout: 'main',
   });

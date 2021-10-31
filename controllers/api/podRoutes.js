@@ -2,10 +2,10 @@ const router = require("express").Router();
 const { Pod, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-router.get("/allpodpost", async (req, res) => {
+router.get("/allpodpost", withAuth, async (req, res) => {
   try {
     const newPod = await Pod.findAll({
-      include: [{ model: User }],
+      include: [User],
     });
     const pods = newPod.map((pod) => pod.get({ plain: true }));
     console.log("pods", pods);
@@ -19,7 +19,7 @@ router.get("/allpodpost", async (req, res) => {
 });
 
 //render newpodpost
-router.get("/allpodpost/new", (req, res) => {
+router.get("/allpodpost/new", withAuth, (req, res) => {
   res.render("newpodpost", {
     layout: "main",
   });

@@ -22,7 +22,7 @@ Project.init(
         len: [10],
       },
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       references: {
         model: "user",

@@ -4,15 +4,15 @@
 
 // const withAuth = require("../utils/auth");
 
-// // route to create/add a profile using async/await
-// // router.post('/', async (req, res) => {
-// //   try { 
-// //     const profileData = await Profile.create({
-// //     profile_name: req.body.profile_name,
-// //     profile_email: req.body.profile_email,
-// //     description: req.body.description,
-      
-// //   });
+// route to create/add a profile using async/await
+// router.post('/', async (req, res) => {
+//   try { 
+//     const profileData = await Profile.create({
+//     profile_name: req.body.profile_name,
+//     profile_email: req.body.profile_email,
+//     description: req.body.description,
+
+//   });
 
 // router.get("/", withAuth, async (req, res) => {
 //     try {
@@ -37,8 +37,8 @@
 //             layout: "main"
 //         })
 
-//   // if the profile is successfully created, the new response will be returned as json
-//   //res.status(200).json(profileData)
+// if the profile is successfully created, the new response will be returned as json
+//res.status(200).json(profileData)
 // } catch (err) {
 //   res.status(400).json(err);
 // }

@@ -17,12 +17,44 @@ router.get("/allprojects", withAuth, async (req, res) => {
     // res.status(200).json(newPod);
   } catch (err) {
     res.status(500).json(err);
+  };
+});
+
+router.get('/allprojects', async (req, res) => {
+  res.render('allprojectposts');
+});
+
+router.get('/allprojects/:id', withAuth, async (req, res) => {
+  // const body = req.body;
+  try {
+    const newProject = await Project.findByPk(req.params.id);
+
+    if (newProject) {
+      const project = newProject.get({ plain: true });
+
+      res.render("singleproject", {
+        layout: "main",
+        pod
+      });
+    } else {
+      res.status(404).end();
+    }
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
-//render new project post
-router.get("/allprojects/new", withAuth, (req, res) => {
-  res.render("newprojectpost", {
-    layout: "main",
+
+
+// Get a project
+router.get('/projects/:id', withAuth, async (req, res) => {
+  // This method renders the 'project' template, and uses params to select the correct project to render in the template, based on the id of the project.
+  // Now, we have access to a project description in the 'project' template.
+  return res.render('allprojectposts', project[req.params.num - 1]);
+});
+
+router.get('/new', withAuth, (req, res) => {
+  res.render('newprojectpost', {
+    layout: 'main',
   });
 });
 

@@ -25,16 +25,23 @@ router.get("/allpodpost/new", withAuth, (req, res) => {
   });
 });
 
-router.post("/allpodpost/new", withAuth, async (req, res) => {
+router.get('/allpodpost/:id', withAuth, async (req, res) => {
+  // const body = req.body;
   try {
-    const newPod = await Pod.create({
-      ...req.body,
-      user_id: req.session.userId,
-    });
+    const newPod = await Pod.findByPk(req.params.id);
 
-    res.status(200).json(newPod);
+    if (newPod) {
+      const pod = newPod.get({ plain: true });
+
+      res.render("singlepod", {
+        layout: "main",
+        pod
+      });
+    } else {
+      res.status(404).end();
+    }
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 

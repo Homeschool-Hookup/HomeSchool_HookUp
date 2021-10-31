@@ -77,7 +77,7 @@ The following topics will be covered in this project:
 * We use MySQL and the Sequelize ORM for the database.
 
 * Have both GET and POST routes for retrieving and adding new data. 
-  As well PUT and DELETE routes for update abd delete data.
+  As well PUT and DELETE routes for update and delete data.
 
 * We use one new technology, package Bulma CSS Framework that we haven’t work with in BootCamp class.
 
@@ -153,7 +153,7 @@ If you have any questions, please reach out to our Github,
 
 ## Deployed Link
 
-* [The URL of the deployed application]()
+* [The URL of the deployed application on Heroku](https://spooky-castle-63582.herokuapp.com/)
 
 * [The URL of the GitHub repository](https://github.com/Homeschool-Hookup/HomeSchool_HookUp)
 

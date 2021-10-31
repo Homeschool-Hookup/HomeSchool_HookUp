@@ -8,9 +8,7 @@ With our team, we conceive and execute a design that solves a real-world problem
 
 ## User Story
 
-```md
  As a parent of school-age children, I need an app that helps me connect with other families and resources like pod, projects and self care  so that my student has optimal social and learning opportunities outside of a traditional school setting.
- ```
 
 ## Description
 
@@ -54,7 +52,9 @@ With our team, we conceive and execute a design that solves a real-world problem
 
 ![Profile Page](assets/Profile.png)
 
-![In Post section when you click Projects then it display all projects](assets/ProjectPost.png)
+![In Post section when you click Projects then it display all projects](assets/Project.png)
+
+![Select Project Title then lead to Edit, click edit then lead to update and delete option for related post](assets/ProUpdateDelete.png)
 
 ## Key Topics
 
